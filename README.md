@@ -23,3 +23,25 @@ only executed on the proper environment.
 * **retorts.txt**         *retorts for "bad" words*
 * **sass.txt**            *silly error messages*
 * **silly.md**            *Brief text about the format for sass.txt*
+
+## Script setup and enabling
+Scripts must be executable and named as above. If you want to temporarily ignore a script, you can remove execute permissions on it. 
+
+## OS Detection and conditions. 
+On startup, 05-vars.sh checks and sets OS specific variables. The global shell variable, RCOSTYPE is set to "linux" or "macos" appropriately. 
+
+For example:
+
+	if [[ "$RCOSTYPE" == "linux" ]]; then
+	   # do linux specific stuff here
+	fi
+
+*note that $(uname) can be used with Linux and Darwin appropriately, too. RCOSTYPE is marginally faster.*
+
+## Installation
+Place all these files in *[homedir]*/.bash.rc.d except .aliases and .aliases.options. The aliases are optional. If you already have a .aliases file, you may keep that or merge these with yours. 
+
+in *[homedir]*/.bashrc end the script with the following line: 
+
+    source ~/.bash.rd.c/rc.loader.sh
+
