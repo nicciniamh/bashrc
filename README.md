@@ -4,6 +4,12 @@ Plug-in based bash startup. Each file is named with a number prefix and a name. 
 are sourced in order of their numeric prefix. Code with OS dependencies should be checked and
 only executed on the proper environment. 
 
+### Features
+* OS Detection
+* Directory aliases for cd command,
+* Reactive prompt setup
+*  and more. 
+
 ## Scripts defined
 
 * **00-functions.sh**     *Miscelaneous code for bash function management*
