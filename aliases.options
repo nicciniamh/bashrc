@@ -1,1 +1,0 @@
-export LS_OPTIONS="--group-directories-first -h --color=auto"
