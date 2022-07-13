@@ -49,3 +49,4 @@ in *[homedir]/.bashrc* end the script with the following line:
 
     source ~/.bash.rd.c/rc.loader.sh
 
+**Note**: The XX-script.sh files, they must be set to executable for any those scripts to be called by *rc.loader.sh*.
