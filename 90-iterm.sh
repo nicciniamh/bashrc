@@ -12,7 +12,3 @@ if [[  $TERM_PROGRAM == "iTerm.app" ]] ; then
 	export -f iterm2_print_user_vars
 	iterm2_print_user_vars
 fi
-if  shopt -q login_shell ; then
-   clear
-   ~/.bash.rc.d/banner.py
-fi
