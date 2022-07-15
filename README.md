@@ -10,7 +10,8 @@ only executed on the proper environment.
 * OS Detection
 * Directory aliases for cd command,
 * Reactive prompt setup
-*  and more. 
+* Snappy responses to invalid commands (and obscenities too)
+* More
 
 ## Scripts defined
 
