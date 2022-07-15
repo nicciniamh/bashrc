@@ -49,12 +49,13 @@ For example:
 *note that $(uname) can be used with Linux and Darwin appropriately, too. RCOSTYPE is marginally faster.*
 
 ## Installation
-Place all these files in *[homedir]/.bash.rc.d* except *.aliases* and *.aliases.options*. 
 
-The aliases are optional. If you already have a .aliases file, you may keep that or merge these with yours. In order for *10-aliases.sh* to work properly, this file must be in your home directory. 
+Place .bash.rc.d in your home folder. 
 
 in *[homedir]/.bashrc* end the script with the following line: 
 
     source ~/.bash.rd.c/rc.loader.sh
 
 **Note**: The XX-script.sh files, they must be set to executable for any those scripts to be called by *rc.loader.sh*.
+
+The optional *.aliases* and *.aliases.options* files should be in your home folder, but will be silently ignored if not present. 
