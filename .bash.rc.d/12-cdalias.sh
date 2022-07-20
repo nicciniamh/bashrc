@@ -27,14 +27,7 @@ file pointed to by CD_cdalias_dictfile or \$HOME/.cdaliases if not
 		-list  list the directory aliases and exit
 		-reload Reload aliases from dictionary file
 
- To use, declare and export a bash function as below:
- function cd() { eval \$(~/bin/cdalias \$@); } ; export -f cd
-
- Once this is put in place, you may use cd as you always do 
- with the additional benefit of being able to type cd <alias> 
- and get to the place pointed by <alias>
-
- The built-in aliases, when there is no dictionary file, are:
+  The built-in aliases, when there is no dictionary file, are:
  	...	gets to the parent of the parent, or ../..
  	.... gets to the parent of the parent of the parent, or ../../..
 
