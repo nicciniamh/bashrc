@@ -13,7 +13,7 @@ only executed on the proper environment.
 * Snappy responses to invalid commands (and obscenities too)
 * More
 
-## Scripts defined
+## Scripts defined in .bash.rc.d
 
 * **00-functions.sh**     *Miscelaneous code for bash function management*
 * **05-vars.sh**          *Set some variables*
@@ -57,3 +57,8 @@ in *[homedir]/.bashrc* end the script with the following line:
 **Note**: The XX-script.sh files, they must be set to executable for any those scripts to be called by *rc.loader.sh*.
 
 The optional *.aliases* and *.aliases.options* files should be in your home folder, but will be silently ignored if not present. 
+
+Other files:
+
+- *README.cdalias.md* - information on the cdalias script and usage
+- *README.silly.md* - information on the error handling in 88-silly-errors.sh
