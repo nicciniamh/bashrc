@@ -28,7 +28,7 @@ file pointed to by *$CDALIASDICTFILE* or *$HOME.cdaliases* if not set. The forma
 ### Built-in aliases
 If there is no alias file or no definitions, the prebuilt aliases are:
 
-	 	...	 Change to the parent of the parent, or ../..
+	 	...  Change to the parent of the parent, or ../..
  		.... Change to the parent of the parent of the parent, or ../../..
 
 ## Limitations
