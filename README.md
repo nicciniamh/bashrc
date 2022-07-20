@@ -60,5 +60,5 @@ The optional *.aliases* and *.aliases.options* files should be in your home fold
 
 Other files:
 
-- *README.cdalias.md* - information on the cdalias script and usage
-- *README.silly.md* - information on the error handling in 88-silly-errors.sh
+- [README.cdalias.md](https://github.com/nicciniamh/bashrc/blob/main/README.cdalias.md) - information on the cdalias script and usage
+- [README.silly.md](https://github.com/nicciniamh/bashrc/blob/main/README.silly.md) - information on the error handling in 88-silly-errors.sh
