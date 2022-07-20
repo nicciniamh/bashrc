@@ -29,11 +29,8 @@ only executed on the proper environment.
 * **banner.py**           *Print a banner on screen*
 * **imgcat**				   *Called in 90-iterm to find imgcat*
 * **rc.loader.sh**        *The script that loads this whole mess*
-* **readme.md**           *This file*
-* **readme.sh**           *Convert readme to straight text*
 * **retorts.txt**         *retorts for "bad" words*
 * **sass.txt**            *silly error messages*
-* **silly.md**            *Brief text about the format for sass.txt*
 
 ## Script setup and enabling
 Scripts must be executable and named as above. If you want to temporarily ignore a script, you can remove execute permissions on it. 
