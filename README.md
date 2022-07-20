@@ -1,5 +1,5 @@
 # Nicci's Nifty Bash Startup
-![](https://raw.githubusercontent.com/nicciniamh/bashrc/main/iterm-screenshot.jpg)
+![](https://raw.githubusercontent.com/nicciniamh/bashrc/main/media/iterm-screenshot.jpg)
 
 
 Plug-in based bash startup. Each file is named with a number prefix and a name. These files
