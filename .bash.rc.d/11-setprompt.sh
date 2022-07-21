@@ -10,7 +10,18 @@
 # escape sequences are escaped within bash as non-printing characters to
 # prevent terminal weirdness with embedded ansi codes
 (return 0 2>/dev/null) || { echo "This script should not be run directly, use source instead" >&2 ; exit 1; }
-function __ansicolor() {
+
+
+##
+## Modify this list of hostnames you don't want on the prompt.
+##
+__localhosts=("BigMac" "localhost")
+__getHostPart() {
+    local hn=$(echo $HOSTNAME|cut -f1 -d.)
+    [[ " ${__localhosts[*]} " =~ " $hh " ]] && echo "" || echo "${1} \h"
+}
+
+__ansicolor() {
     ## This function creates escaped escape sequences for prompting
     if [[ $# == 3 ]] ; then
         local at=$1
@@ -20,7 +31,7 @@ function __ansicolor() {
     fi
     echo "\[\e[${at};3${1};4${2}m\]"
 }
-function setTitle() {
+setTitle() {
 	local wd=$(chomppath $(pwd))
     local ITS="$(whoami)@${HOSTNAME}:${wd}"
     echo -en '\033]0;'
@@ -28,10 +39,15 @@ function setTitle() {
     echo -en '\007'
     export TERMINAL_TITLE_STRING=${ITS}
 }
-function setPrompt() {
+setPrompt() {
     local EXIT=$? ## Must be firstl line in function
     local happy="😀"
     local sad="😡"
+    if (($EXIT)) ; then
+        local FACE="${sad}"
+    else
+        local FACE="${happy}"
+    fi
     local ablack=0
     local ared=1
     local agreen=2
@@ -46,12 +62,9 @@ function setPrompt() {
     local aunder=4
     local ablnk=5
     local RESET="\[\e[0m\]"
-    if (($EXIT)) ; then
-        local FACE="${sad}"
-    else
-        local FACE="${happy}"
-    fi
-    #FACE="${FACE} (${EXIT})"
+    ##
+    ## Default colors, please change here
+    ##
     if (($EUID)) ; then
         local USER="$(__ansicolor $abold $awhite $apurple)"
     else
@@ -61,11 +74,7 @@ function setPrompt() {
     local HOST="$(__ansicolor $abold $awhite $agreen)"
     local CDIR="$(__ansicolor $awhite $ablue)"
     local PCH="▶"
-    if hostname|egrep -q 'BigMac' ; then   ### If you don't want the hostname to show replace "BigMac" with your hostname
-        local hpart=""
-    else
-        local hpart="${HOST} \h "
-    fi
+    hpart=$(__getHostPart ${HOST})
     export PS1="${FACE} ${HIST} \! ${hpart}${USER} \u ${CDIR} \w ${RESET}${PCH} "
     setTitle
 }
