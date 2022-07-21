@@ -44,14 +44,18 @@ If there is no alias file or no definitions, the prebuilt aliases are:
 ## Exported variables and functions
 cdalias needs these variables and functions to work. 
 
-- _CDALIAS_HELP - used with the -h option to cd
-- _cdalias_dictfile - consistent representation of the alias file being used
-- _cdalias_dictionary - internal dictionary of aliases
-- _cdalias_writealiases - write out alias file
-- _cdalias_readaliases - read in alias file
-- cdalias - the cdalias function
+| Variable              |Usage|
+|-----------------------|---|
+|_CDALIAS_HELP| Used with the -h option to cd|
+|_cdalias_dictfile| Internally onsistent representation of the alias file being used|
+|_cdalias_dictionary|Internal dictionary of aliases|
+|_cdalias_makealiases|If set to a non-blank value, directory aliases without leading slashes will be made into command aliases|
+|_cdalias_readaliases| Function to read alias file
+|_cdalias_writealiases|Function to write alias file|
+|cdalias| The cdalias function
 
 ### *wrapping up*
 As part of .bash.rc.d, the cdalias script will alias cd=cdalias.
+In *01-options.sh* autocd is set - this allows for the shell to use acommand name that is the name of a directory is executed as if it were the argument to the cd command. This option is only used by interactive shells.
 
 

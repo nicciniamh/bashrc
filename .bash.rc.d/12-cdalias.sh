@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 (return 0 2>/dev/null) || { echo "This script should not be run directly, use source instead" >&2 ; exit 1; }
 ##
+_cdalias_makealiases=yes ## Remove this variable if you don't want directory aliases as command aliases
+
 read -r -d '' _CDALIAS_HELP << EndOfHelp
 ------------------------------------------------------
 cdalias is a script which creates directory aliases 
@@ -166,3 +168,8 @@ function cdalias() {
 }
 export -f cdalias
 alias cd=cdalias
+if [[ ! -z "$_cdalias_makealiases" ]] ; then
+	for k in ${!_cdalias_dictionary[@]} ; do
+		alias ${k#/}="cd ${_cdalias_dictionary[$k]}"
+	done
+fi
