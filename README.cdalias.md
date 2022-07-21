@@ -13,7 +13,7 @@ file pointed to by *$CDALIASDICTFILE* or *$HOME.cdaliases* if not set. The forma
  ignored entirely.
 
 ## Usage
-	*cd [-aoprh|-reload|-list dir*
+	cd [-aoprh|-reload|-list dir
 
 ### Options added to the cd command:
 		-a alias definition or -a alias:definition
