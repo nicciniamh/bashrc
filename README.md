@@ -33,21 +33,22 @@ only executed on the proper environment.
 * **sass.txt**            *silly error messages*
 
 ## Script Setup and Enabling
-Scripts must be executable and named as above. If you want to ignore a script, you can remove execute permissions on it. For example, if you don't want the prompt set the way I have it, you can run:
-
-	chmod -x 11-setprompt.sh
+Scripts must be executable and named as above. If you want to ignore a script, you can remove execute permissions on it. For example, if you don't want the prompt set the way I have it, you can run ```chmod -x 11-setprompt.sh```
 
 ## OS Detection Inside startup scripts
 On startup, 05-vars.sh checks and sets OS specific variables. The global shell variable, RCOSTYPE is set to "linux" or "macos" appropriately. 
 
 For example:
 
+```bash
 	if [[ "$RCOSTYPE" == "linux" ]]; then
 	   # do linux specific stuff here
 	fi
+```
 	
 Another way to distinghish the OS type is using uname. For example:
 
+```bash
 	if [[ $(uname) == "Darin" ]] ; then
 		# Do some macOS stuff
 	elif [[ $(uname) == "Linux" ]] ; then
@@ -55,7 +56,12 @@ Another way to distinghish the OS type is using uname. For example:
 	else
 		# Do other processing or error handling
 	fi
-		
+```
+
+The advantage to using RCOSTYOE is that, since it's an exported variable, no additional program needs to be invoked to get the OS type, so it's slightly faster. 
+
+For a complete list of exported variables, please see [Global Variables Exported](#Global-Variables-Exported)
+
 ## Installation
 
 Place .bash.rc.d in your home folder. 
@@ -67,6 +73,22 @@ in *[homedir]/.bashrc* end the script with the following line:
 **Note**: The XX-script.sh files, they must be set to executable for any those scripts to be called by *rc.loader.sh*.
 
 The optional *.aliases* and *.aliases.options* files should be in your home folder, but will be silently ignored if not present. 
+
+## Global Variables Exported
+| Variable              |Usage|
+|-----------------------|---|
+| DISTRIB_CODENAME      |For Linux Systems the Distribution Codename like "focal"|
+| DISTRIB_DESCRIPTION   |Long description of Linux Distribution   |
+| DISTRIB_ID            |Vendor Name of Distribution   |
+| DISTRIB_RELEASE       |Vender Release ID (e.g., 20.04) of Distributio  |
+| HOST_ADDRESS          |Space separated IP Addresses |
+| MACOS_FRIENDLY        |Friendly name of macOS, e.g., Catalina   |
+| MACOS_NAME            |Name of macOS, e.g, "Mac OS X"   |
+| MACOS_PRODUCT         |Long name of macOS   |
+| MACOS_VERSION         |Numeric verion of macOS |
+| PROMPT_DIRTRIM        |Limits the lengh of paths in prompt |
+| RCOSTYPE              |Name of OS, e.g, linux or macos   |
+| TERMINAL_TITLE_STRING |The string that is sent to the terminal app for its title, part of 11-setprompt.sh |
 
 Other files:
 
