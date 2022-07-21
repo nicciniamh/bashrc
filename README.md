@@ -32,10 +32,12 @@ only executed on the proper environment.
 * **retorts.txt**         *retorts for "bad" words*
 * **sass.txt**            *silly error messages*
 
-## Script setup and enabling
-Scripts must be executable and named as above. If you want to temporarily ignore a script, you can remove execute permissions on it. 
+## Script Setup and Enabling
+Scripts must be executable and named as above. If you want to ignore a script, you can remove execute permissions on it. For example, if you don't want the prompt set the way I have it, you can run:
 
-## OS Detection and inside startup scripts
+	chmod -x 11-setprompt.sh
+
+## OS Detection Inside startup scripts
 On startup, 05-vars.sh checks and sets OS specific variables. The global shell variable, RCOSTYPE is set to "linux" or "macos" appropriately. 
 
 For example:
@@ -43,9 +45,17 @@ For example:
 	if [[ "$RCOSTYPE" == "linux" ]]; then
 	   # do linux specific stuff here
 	fi
+	
+Another way to distinghish the OS type is using uname. For example:
 
-*note that $(uname) can be used with Linux and Darwin appropriately, too. RCOSTYPE is marginally faster.*
-
+	if [[ $(uname) == "Darin" ]] ; then
+		# Do some macOS stuff
+	elif [[ $(uname) == "Linux" ]] ; then
+		# Do some linux stuff
+	else
+		# Do other processing or error handling
+	fi
+		
 ## Installation
 
 Place .bash.rc.d in your home folder. 
